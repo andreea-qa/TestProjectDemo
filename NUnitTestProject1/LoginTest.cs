@@ -20,7 +20,7 @@ namespace NUnitTestProject1
 
             //Fill in the form with the username and password
             driver.FindElementById("name").SendKeys("John Smith");
-            driver.FindElementById("password").SendKeys("12345");
+            driver.FindElementById("password").SendKeys("1234");
             driver.FindElementById("login").Click();
             helper.Reporter.Step("Logged in the app", "The login is unsuccessful", "The login is successful", 
                 driver.FindElement(By.Id("logout")).Displayed, TakeScreenshotConditionType.Failure);
@@ -29,10 +29,8 @@ namespace NUnitTestProject1
             if (driver.FindElement(By.Id("logout")).Displayed)
             {
                 return ExecutionResult.Passed;
-            } else
-            {
-                return ExecutionResult.Failed;
             }
+            return ExecutionResult.Failed;
                           
         }
     }
